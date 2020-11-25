@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace FootBall.Web.Data.Entities
@@ -16,6 +17,7 @@ namespace FootBall.Web.Data.Entities
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime StartDate { get; set; }
 
+        [DataType(DataType.DateTime)]
         [Display(Name = "Start Date")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime StartDateLocal => StartDate.ToLocalTime();
@@ -35,5 +37,11 @@ namespace FootBall.Web.Data.Entities
 
         [Display(Name = "Active")]
         public bool IsActive { get; set; }
+
+        public ICollection<ClassificationEntity> Classifications { get; set; }
+
+        public ICollection<SessionEntity> Sessions { get; set; }
+
+        public ICollection<GameEntity> Games { get; set; }
     }
 }

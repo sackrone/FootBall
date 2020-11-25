@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FootBall.Web.Data.Entities
 {
@@ -18,5 +19,7 @@ namespace FootBall.Web.Data.Entities
 
         [Display(Name = "Active")]
         public bool IsActive { get; set; }
+
+        public ICollection<ClassificationEntity> Classifications { get; set; }
     }
 }
