@@ -135,22 +135,9 @@ namespace FootBall.Web.Controllers
                 return NotFound();
             }
 
-            return View(clubEntity);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var clubEntity = await _context.Clubs.FindAsync(id);
             _context.Clubs.Remove(clubEntity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool ClubEntityExists(int id)
-        {
-            return _context.Clubs.Any(e => e.Id == id);
         }
     }
 }
