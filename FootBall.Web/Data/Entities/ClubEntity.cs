@@ -6,8 +6,8 @@ namespace FootBall.Web.Data.Entities
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "The {0} field is required.")]
         [MaxLength(50, ErrorMessage = "The {0} field must not be longer than {1} characters.")]
+        [Required(ErrorMessage = "The {0} field is required.")]
         public string Name { get; set; }
 
         [Display(Name = "Logo")]
