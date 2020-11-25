@@ -18,5 +18,11 @@ namespace FootBall.Web.Data
         public DbSet<SessionEntity> Sessions { get; set; }
 
         public DbSet<TournamentEntity> Tournaments { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<ClubEntity>().HasIndex(c => c.Name).IsUnique();
+        }
     }
 }
