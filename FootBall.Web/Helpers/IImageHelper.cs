@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace FootBall.Web.Helpers
 {
-    internal interface IImageHelper
+    public interface IImageHelper
     {
         Task<string> UploadImageAsyc(IFormFile imageFile, string folder);
     }
