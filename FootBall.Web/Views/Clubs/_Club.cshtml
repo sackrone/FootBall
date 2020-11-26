@@ -1,0 +1,26 @@
+﻿@model FootBall.Web.Models.ClubViewModel
+
+<div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="LogoFile" class="control-label"></label>
+    <input asp-for="LogoFile" type="file" class="form-control" />
+    <span asp-validation-for="LogoFile" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <div class="checkbox">
+        <label>
+            <input asp-for="LigaMX" /> @Html.DisplayNameFor(model => model.LigaMX)
+        </label>
+    </div>
+</div>
+<div class="form-group">
+    <div class="checkbox">
+        <label>
+            <input asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+        </label>
+    </div>
+</div>
