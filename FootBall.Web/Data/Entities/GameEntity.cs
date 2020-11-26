@@ -35,7 +35,5 @@ namespace FootBall.Web.Data.Entities
         public bool Played { get; set; }
 
         public SessionEntity Session { get; set; }
-
-        public TournamentEntity Tournament { get; set; }
     }
 }

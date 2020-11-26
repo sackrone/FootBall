@@ -32,6 +32,7 @@ namespace FootBall.Web
                 cfg.UseSqlServer(Configuration.GetConnectionString("FootBallConnection"));
             });
 
+            services.AddTransient<SeedDB>();
             services.AddScoped<IImageHelper, ImageHelper>();
             services.AddScoped<IConverterHelper, ConverterHelper>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

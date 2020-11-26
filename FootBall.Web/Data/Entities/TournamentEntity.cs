@@ -41,7 +41,5 @@ namespace FootBall.Web.Data.Entities
         public ICollection<ClassificationEntity> Classifications { get; set; }
 
         public ICollection<SessionEntity> Sessions { get; set; }
-
-        public ICollection<GameEntity> Games { get; set; }
     }
 }
