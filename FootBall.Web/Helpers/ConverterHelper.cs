@@ -28,5 +28,35 @@ namespace FootBall.Web.Helpers
                 IsActive = clubEntity.IsActive
             };
         }
+
+        public TournamentEntity ToTournamentEntity(TournamentViewModel model, string path, bool isNew)
+        {
+            return new TournamentEntity
+            {
+                Id = isNew ? 0 : model.Id,
+                Name = model.Name,
+                StartDate = model.StartDate.ToUniversalTime(),
+                EndDate = model.EndDate.ToUniversalTime(),
+                LogoPath = path,
+                IsActive = model.IsActive,
+                Classifications = model.Classifications,
+                Sessions = model.Sessions
+            };
+        }
+
+        public TournamentViewModel ToTournamentViewModel(TournamentEntity tournamentEntity)
+        {
+            return new TournamentViewModel
+            {
+                Id = tournamentEntity.Id,
+                Name = tournamentEntity.Name,
+                StartDate = tournamentEntity.StartDate,
+                EndDate = tournamentEntity.EndDate,
+                LogoPath = tournamentEntity.LogoPath,
+                IsActive = tournamentEntity.IsActive,
+                Classifications = tournamentEntity.Classifications,
+                Sessions = tournamentEntity.Sessions
+            };
+        }
     }
 }

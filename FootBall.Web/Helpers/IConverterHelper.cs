@@ -8,5 +8,9 @@ namespace FootBall.Web.Helpers
         ClubEntity ToClubEntity(ClubViewModel model, string path, bool isNew);
 
         ClubViewModel ToClubViewModel(ClubEntity clubEntity);
+
+        TournamentEntity ToTournamentEntity(TournamentViewModel model, string path, bool isNew);
+
+        TournamentViewModel ToTournamentViewModel(TournamentEntity tournamentEntity);
     }
 }
