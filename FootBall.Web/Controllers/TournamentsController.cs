@@ -88,13 +88,51 @@ namespace FootBall.Web.Controllers
                     path = await _imageHelper.UploadImageAsyc(model.LogoFile, "Tournaments");
                 }
 
-                TournamentEntity tournament = _converterHelper.ToTournamentEntity(model, path, false);
-                _context.Add(tournament);
+                TournamentEntity tournamentEntity = _converterHelper.ToTournamentEntity(model, path, false);
+                _context.Update(tournamentEntity);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
             return View(model);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var tournamentEntity = await _context.Tournaments.FirstOrDefaultAsync(t => t.Id == id);
+            if (tournamentEntity == null)
+            {
+                return NotFound();
+            }
+
+            _context.Tournaments.Remove(tournamentEntity);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var tournamentEntity = await _context.Tournaments
+                .Include(t => t.Classifications)
+                .ThenInclude(c => c.Club)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            if (tournamentEntity == null)
+            {
+                return NotFound();
+            }
+
+            return View(tournamentEntity);
         }
     }
 }
