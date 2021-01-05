@@ -76,12 +76,12 @@ namespace FootBall.Web.Data
         {
             if (!_context.Tournaments.Any())
             {
-                var startDate = new DateTime(2020, 7, 24).ToUniversalTime();
-                var endDate = new DateTime(2020, 11, 29).ToUniversalTime();
+                var startDate = new DateTime(2021, 1, 8).ToUniversalTime();
+                var endDate = new DateTime(2021, 5, 30).ToUniversalTime();
 
                 _context.Tournaments.Add(new TournamentEntity
                 {
-                    Name = "Quiniela GS20",
+                    Name = "Quiniela GS21",
                     StartDate = startDate,
                     EndDate = endDate,
                     LogoPath = $"~/images/Tournaments/Guard1anes.png",
@@ -112,71 +112,71 @@ namespace FootBall.Web.Data
                         new SessionEntity
                         {
                             Name = "Jornada 1",
-                            LimitDate = endDate,
+                            LimitDate = new DateTime(2021, 1, 7).ToUniversalTime(),
                             IsActive = true,
                             Games = new List<GameEntity>
                             {
                                 new GameEntity
                                 {
-                                    GameDate = new DateTime(2020, 7, 24, 19, 30, 0).ToUniversalTime(),
-                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Necaxa"),
-                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Tigres"),
+                                    GameDate = new DateTime(2021, 1, 8, 19, 30, 0).ToUniversalTime(),
+                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Puebla"),
+                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Chivas"),
                                     Played = false
                                 },
                                 new GameEntity
                                 {
-                                    GameDate = new DateTime(2020, 7, 25, 19, 0, 0).ToUniversalTime(),
-                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Chivas"),
+                                    GameDate = new DateTime(2021, 1, 8, 21, 0, 0).ToUniversalTime(),
+                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Xolos"),
+                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Pumas"),
+                                    Played = false
+                                },
+                                new GameEntity
+                                {
+                                    GameDate = new DateTime(2021, 1, 8, 21, 30, 0).ToUniversalTime(),
+                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Mazatlan"),
+                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Necaxa"),
+                                    Played = false
+                                },
+                                new GameEntity
+                                {
+                                    GameDate = new DateTime(2021, 1, 9, 17, 0, 0).ToUniversalTime(),
+                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Atlas"),
+                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Moterrey"),
+                                    Played = false
+                                },
+                                new GameEntity
+                                {
+                                    GameDate = new DateTime(2021, 1, 9, 19, 0, 0).ToUniversalTime(),
+                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Tigres"),
                                     Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Leon"),
                                     Played = false
                                 },
                                 new GameEntity
                                 {
-                                    GameDate = new DateTime(2020, 7, 25, 21, 0, 0).ToUniversalTime(),
-                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Cruz Azul"),
-                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Santos"),
+                                    GameDate = new DateTime(2021, 1, 9, 21, 0, 0).ToUniversalTime(),
+                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "America"),
+                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "San Luis"),
                                     Played = false
                                 },
                                 new GameEntity
                                 {
-                                    GameDate = new DateTime(2020, 7, 25, 21, 0, 0).ToUniversalTime(),
-                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Xolos"),
-                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Atlas"),
-                                    Played = false
-                                },
-                                new GameEntity
-                                {
-                                    GameDate = new DateTime(2020, 7, 26, 12, 0, 0).ToUniversalTime(),
-                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Pumas"),
+                                    GameDate = new DateTime(2021, 1, 10, 12, 0, 0).ToUniversalTime(),
+                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Toluca"),
                                     Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Queretaro"),
                                     Played = false
                                 },
                                 new GameEntity
                                 {
-                                    GameDate = new DateTime(2020, 7, 27, 18, 0, 0).ToUniversalTime(),
-                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "San Luis"),
-                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Juarez"),
+                                    GameDate = new DateTime(2021, 1, 10, 19, 0, 0).ToUniversalTime(),
+                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Santos"),
+                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Cruz Azul"),
                                     Played = false
                                 },
                                 new GameEntity
                                 {
-                                    GameDate = new DateTime(2020, 7, 27, 20, 0, 0).ToUniversalTime(),
+                                    GameDate = new DateTime(2021, 1, 11, 21, 0, 0).ToUniversalTime(),
                                     Local = _context.Clubs.FirstOrDefault(t => t.Name == "Pachuca"),
-                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "America"),
-                                    Played = false
-                                },
-                                new GameEntity
-                                {
-                                    GameDate = new DateTime(2020, 7, 27, 22, 0, 0).ToUniversalTime(),
-                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Mazatlan"),
-                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Puebla"),
-                                    Played = false
-                                },
-                                new GameEntity
-                                {
-                                    GameDate = new DateTime(2020, 7, 28, 19, 0, 0).ToUniversalTime(),
-                                    Local = _context.Clubs.FirstOrDefault(t => t.Name == "Monterrey"),
-                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Toluca"),
+                                    Visitor = _context.Clubs.FirstOrDefault(t => t.Name == "Juarez"),
                                     Played = false
                                 }
                             }

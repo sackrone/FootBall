@@ -1,7 +1,7 @@
 ﻿using FootBall.Web.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FootBall.Web.Helpers
 {
@@ -16,7 +16,19 @@ namespace FootBall.Web.Helpers
 
         public IEnumerable<SelectListItem> GetComboClubs()
         {
-            throw new NotImplementedException();
+            List<SelectListItem> list = _context.Clubs.Select(c => new SelectListItem
+            {
+                Text = c.Name,
+                Value = $"{c.Id}"
+            }).OrderBy(c => c.Text).ToList();
+
+            list.Insert(0, new SelectListItem
+            {
+                Text = "[Select a Club...]",
+                Value = "0"
+            });
+
+            return list;
         }
     }
 }
