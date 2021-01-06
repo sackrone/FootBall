@@ -1,4 +1,43 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model FootBall.Web.Models.ClassificationViewModel
+
+<div class="form-group">
+    <label asp-for="ClubId" class="control-label"></label>
+    <select asp-for="ClubId" asp-items="Model.Clubs" class="form-control"></select>
+    <span asp-validation-for="ClubId" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="GamesPlayed" class="control-label"></label>
+    <input asp-for="GamesPlayed" class="form-control" />
+    <span asp-validation-for="GamesPlayed" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="GamesWon" class="control-label"></label>
+    <input asp-for="GamesWon" class="form-control" />
+    <span asp-validation-for="GamesWon" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="GamesTied" class="control-label"></label>
+    <input asp-for="GamesTied" class="form-control" />
+    <span asp-validation-for="GamesTied" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="GamesLost" class="control-label"></label>
+    <input asp-for="GamesLost" class="form-control" />
+    <span asp-validation-for="GamesLost" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="GoalsFor" class="control-label"></label>
+    <input asp-for="GoalsFor" class="form-control" />
+    <span asp-validation-for="GoalsFor" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="GoalsAgainst" class="control-label"></label>
+    <input asp-for="GoalsAgainst" class="form-control" />
+    <span asp-validation-for="GoalsAgainst" class="text-danger"></span>
+</div>

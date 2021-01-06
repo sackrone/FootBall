@@ -137,7 +137,7 @@ namespace FootBall.Web.Controllers
             return View(tournamentEntity);
         }
 
-        public async Task<IActionResult> AddClubAddClubClassification(int? id)
+        public async Task<IActionResult> AddClubClassification(int? id)
         {
             if (id == null)
             {
@@ -162,7 +162,7 @@ namespace FootBall.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddClubAddClubClassification(ClassificationViewModel model)
+        public async Task<IActionResult> AddClubClassification(ClassificationViewModel model)
         {
             if(ModelState.IsValid)
             {
