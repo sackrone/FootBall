@@ -20,6 +20,8 @@ namespace FootBall.Web.Data.Entities
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = false)]
         public DateTime LimitDateLocal => LimitDate.ToLocalTime();
 
+        public TypeSessionEntity TypeSession { get; set; }
+
         [Display(Name = "Active")]
         public bool IsActive { get; set; }
 

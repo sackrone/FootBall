@@ -172,6 +172,7 @@ namespace FootBall.Web.Controllers
                 return RedirectToAction($"{nameof(Details)}/{model.TournamentId}");
             }
 
+            model.Tournament = await _context.Tournaments.FindAsync(model.TournamentId);
             model.Clubs = _combosHelper.GetComboClubs();
             return View(model);
         }

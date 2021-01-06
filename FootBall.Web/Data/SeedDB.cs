@@ -21,6 +21,7 @@ namespace FootBall.Web.Data
             await _context.Database.EnsureCreatedAsync();
             await CheckClubsAsync();
             await CheckResultsAsync();
+            await CheckTypeSessionAsync();
             await CheckTournamentsAsync();
         }
 
@@ -68,6 +69,17 @@ namespace FootBall.Web.Data
                 _context.Results.Add(new ResultEntity { Name = "Local" });
                 _context.Results.Add(new ResultEntity { Name = "Tie" });
                 _context.Results.Add(new ResultEntity { Name = "Vistor" });
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckTypeSessionAsync()
+        {
+            if(!_context.TypeSessions.Any())
+            {
+                _context.TypeSessions.Add(new TypeSessionEntity { Name = "Session" });
+                _context.TypeSessions.Add(new TypeSessionEntity { Name = "Playoffs" });
+                _context.TypeSessions.Add(new TypeSessionEntity { Name = "Final" });
                 await _context.SaveChangesAsync();
             }
         }

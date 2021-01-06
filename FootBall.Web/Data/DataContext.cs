@@ -19,6 +19,8 @@ namespace FootBall.Web.Data
 
         public DbSet<TournamentEntity> Tournaments { get; set; }
 
+        public DbSet<TypeSessionEntity> TypeSessions { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
