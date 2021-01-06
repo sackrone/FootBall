@@ -14,12 +14,14 @@ namespace FootBall.Web.Controllers
         private readonly DataContext _context;
         private readonly IConverterHelper _converterHelper;
         private readonly IImageHelper _imageHelper;
+        private readonly ICombosHelper _combosHelper;
 
-        public TournamentsController(DataContext context, IConverterHelper converterHelper, IImageHelper imageHelper)
+        public TournamentsController(DataContext context, IConverterHelper converterHelper, IImageHelper imageHelper, ICombosHelper combosHelper)
         {
             _context = context;
             _converterHelper = converterHelper;
             _imageHelper = imageHelper;
+            _combosHelper = combosHelper;
         }
 
         public async Task<IActionResult> Index()
@@ -133,6 +135,45 @@ namespace FootBall.Web.Controllers
             }
 
             return View(tournamentEntity);
+        }
+
+        public async Task<IActionResult> AddClubAddClubClassification(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            TournamentEntity tournamentEntity = await _context.Tournaments.FindAsync(id);
+            if(tournamentEntity == null)
+            {
+                return NotFound();
+            }
+
+            ClassificationViewModel model = new ClassificationViewModel
+            {
+                Tournament = tournamentEntity,
+                TournamentId = tournamentEntity.Id,
+                Clubs = _combosHelper.GetComboClubs()
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddClubAddClubClassification(ClassificationViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                ClassificationEntity classificationEntity = await _converterHelper.ToClassificationEntityAsync(model, true);
+                _context.Add(classificationEntity);
+                await _context.SaveChangesAsync();
+                return RedirectToAction($"{nameof(Details)}/{model.TournamentId}");
+            }
+
+            model.Clubs = _combosHelper.GetComboClubs();
+            return View(model);
         }
     }
 }
