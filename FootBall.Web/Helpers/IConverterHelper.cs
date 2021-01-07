@@ -17,5 +17,9 @@ namespace FootBall.Web.Helpers
         Task<ClassificationEntity> ToClassificationEntityAsync(ClassificationViewModel model, bool isNew);
 
         ClassificationViewModel ToClassificationViewModel(ClassificationEntity classificationEntity);
+
+        Task<SessionEntity> ToSessionEntityAsync(SessionViewModel model, bool isNew);
+
+        SessionViewModel ToSessionViewModel(SessionEntity sessionEntity);
     }
 }

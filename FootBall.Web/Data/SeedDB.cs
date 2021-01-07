@@ -125,6 +125,7 @@ namespace FootBall.Web.Data
                         {
                             Name = "Jornada 1",
                             LimitDate = new DateTime(2021, 1, 7).ToUniversalTime(),
+                            TypeSession = null,
                             IsActive = true,
                             Games = new List<GameEntity>
                             {

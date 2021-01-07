@@ -104,5 +104,17 @@ namespace FootBall.Web.Helpers
                 Clubs = _combosHelper.GetComboClubs()
             };
         }
+
+        //public async Task<SessionEntity> ToSessionEntityAsync(SessionViewModel model, bool isNew)
+        //{
+        //    return new SessionEntity
+        //    {
+        //        Id = isNew ? 0 : model.Id,
+        //        Name = model.Name,
+        //        LimitDate = model.LimitDate,
+        //        IsActive = model.IsActive,
+
+        //    };
+        //}
     }
 }

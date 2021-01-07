@@ -30,5 +30,22 @@ namespace FootBall.Web.Helpers
 
             return list;
         }
+
+        public IEnumerable<SelectListItem> GetComboTypeSession()
+        {
+            List<SelectListItem> list = _context.TypeSessions.Select(t => new SelectListItem
+            {
+                Text = t.Name,
+                Value = $"{t.Id}"
+            }).OrderBy(t => t.Text).ToList();
+
+            list.Insert(0, new SelectListItem
+            {
+                Text = "[Select a Type...]",
+                Value = "0"
+            });
+
+            return list;
+        }
     }
 }
