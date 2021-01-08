@@ -7,7 +7,7 @@ namespace FootBall.Web.Models
 {
     public class SessionViewModel : SessionEntity
     {
-        public int SessionId { get; set; }
+        public int TournamentId { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
         [Display(Name = "Session")]

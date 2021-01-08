@@ -105,16 +105,35 @@ namespace FootBall.Web.Helpers
             };
         }
 
-        //public async Task<SessionEntity> ToSessionEntityAsync(SessionViewModel model, bool isNew)
-        //{
-        //    return new SessionEntity
-        //    {
-        //        Id = isNew ? 0 : model.Id,
-        //        Name = model.Name,
-        //        LimitDate = model.LimitDate,
-        //        IsActive = model.IsActive,
+        public async Task<SessionEntity> ToSessionEntityAsync(SessionViewModel model, bool isNew)
+        {
+            return new SessionEntity
+            {
+                Id = isNew ? 0 : model.Id,
+                Name = model.Name,
+                LimitDate = model.LimitDate.ToUniversalTime(),
+                TypeSession = await _context.TypeSessions.FindAsync(model.TypeSessionId),
+                IsActive = model.IsActive,
+                Tournament = await _context.Tournaments.FindAsync(model.TournamentId),
+                Games = model.Games
+            };
+        }
 
-        //    };
-        //}
+        public SessionViewModel ToSessionViewModel(SessionEntity sessionEntity)
+        {
+            return new SessionViewModel
+            {
+                Id = sessionEntity.Id,
+                Name = sessionEntity.Name,
+                LimitDate = sessionEntity.LimitDate,
+                TypeSession = sessionEntity.TypeSession,
+                TypeSessionId = sessionEntity.TypeSession.Id,
+                Types = _combosHelper.GetComboTypeSession(),
+                IsActive = sessionEntity.IsActive,
+                Tournament = sessionEntity.Tournament,
+                TournamentId = sessionEntity.Tournament.Id,
+                Games = sessionEntity.Games
+            };
+        }
     }
 }

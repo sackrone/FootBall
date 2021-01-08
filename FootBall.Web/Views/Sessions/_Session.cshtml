@@ -1,0 +1,27 @@
+﻿@model FootBall.Web.Models.SessionViewModel
+
+<div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="LimitDate" class="control-label"></label>
+    <input asp-for="LimitDate" class="form-control" />
+    <span asp-validation-for="LimitDate" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="TypeSessionId" class="control-label"></label>
+    <select asp-for="TypeSessionId" asp-items="Model.Types" class="form-control"></select>
+    <span asp-validation-for="TypeSessionId" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <div class="checkbox">
+        <label>
+            <input asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+        </label>
+    </div>
+</div>
